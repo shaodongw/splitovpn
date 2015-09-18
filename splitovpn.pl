@@ -91,7 +91,6 @@ sub process {
     $_ .= "ca " . $dir . "/" . $opvn . ".ca.crt\n";
     $_ .= "cert " . $dir . "/" . $opvn . ".client.crt\n";
     $_ .= "key " . $dir . "/" . $opvn . ".client.key\n";
-    print $_;
 
     open CA_CRT,        ">", $opvn . ".ca.crt";
     open CLIENT_CRT,    ">", $opvn . ".client.crt";
