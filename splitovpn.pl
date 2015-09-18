@@ -3,8 +3,10 @@
 use strict;
 use warnings;
 use utf8;
+use Cwd;
 # use YAML;
 # use Data::Dumper;
+
 
 binmode STDOUT, ":utf8";
 
@@ -85,6 +87,11 @@ sub process {
 
     my $client_key = $1 if (s/$key_regex//);
 
+    my $dir = cwd();
+    $_ .= "ca " . $dir . "/" . $opvn . ".ca.crt\n";
+    $_ .= "cert " . $dir . "/" . $opvn . ".client.crt\n";
+    $_ .= "key " . $dir . "/" . $opvn . ".client.key\n";
+    print $_;
 
     open CA_CRT,        ">", $opvn . ".ca.crt";
     open CLIENT_CRT,    ">", $opvn . ".client.crt";
